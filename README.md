@@ -2,7 +2,7 @@
 
 I'm using this both as a chance to learn Travis-CI and refresh my LaTeX skills.
 
-[![Build Status](https://travis-ci.com/McNultyyy/cv.svg?token=XeZC5qCDmhzzpTPhwDt9&branch=master)](https://travis-ci.com/McNultyyy/cv)
+[![Build Status](https://travis-ci.org/McNultyyy/cv.svg?branch=master)](https://travis-ci.org/McNultyyy/cv)
 ## Build Process
 1. Push updates.
 2. Travis-CI builds _tex_ files into a _pdf_.
