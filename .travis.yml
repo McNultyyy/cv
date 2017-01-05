@@ -1,5 +1,7 @@
 sudo: required
-cache: apt
+cache:
+    - bundler
+    - apt
 language: ruby
 branches:
     only:
@@ -31,7 +33,7 @@ script:
 
     - chktex -W # Print version information.
     - chktex *.text 2>/dev/null | tee lint.out
-    
+
     # If chktex returned an error, then break
     - test ! -s lint.out
 
