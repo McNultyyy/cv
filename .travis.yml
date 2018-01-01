@@ -25,17 +25,17 @@ install:
     # get basic biblatex stuff
     - sudo apt-get install texlive-bibtex-extra biblatex 
     # get chktex to check our LaTeX
-    - sudo apt-get install chktex
+    #- sudo apt-get install chktex
  
 script:
     # if we have a TAG provided, use this as filename: tag.PDF
     - "echo ${#TRAVIS_TAG}; if [ ${#TRAVIS_TAG} -gt 0 ]; then outputfilename=${TRAVIS_TAG}; fi"
 
-    - chktex -W # Print version information.
-    - chktex *.text 2>/dev/null | tee lint.out
+    #- chktex -W # Print version information.
+    #- chktex *.text 2>/dev/null | tee lint.out
 
     # If chktex returned an error, then break
-    - test ! -s lint.out
+    #- test ! -s lint.out
 
     # now actually build the PDF
     - pdflatex main.tex
