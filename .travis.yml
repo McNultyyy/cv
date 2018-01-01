@@ -13,7 +13,7 @@ env:
 
 before_install:
     # add latest latex packages to apt-get repos
-    - sudo add-apt-repository ppa:texlive-backports/ppa -y
+    #- sudo add-apt-repository ppa:texlive-backports/ppa -y
 
 install:
     # update apt-get to get newest versions
