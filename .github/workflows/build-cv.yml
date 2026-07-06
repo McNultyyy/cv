@@ -1,0 +1,33 @@
+name: Build CV
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: typst-community/setup-typst@v4
+
+      - run: typst compile cv.typ cv.pdf
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cv
+          path: cv.pdf
+
+      - name: Publish to latest release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest CV
+          body: Built automatically from the latest commit on master.
+          files: cv.pdf

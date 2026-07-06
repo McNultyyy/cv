@@ -1,15 +1,17 @@
-## CV 
+## CV
 
-I'm using this both as a chance to learn Travis-CI and refresh my LaTeX skills.
+The CV is written in [Typst](https://typst.app) — `cv.typ` is the single source of truth.
 
-[![Build Status](https://travis-ci.org/McNultyyy/cv.svg?branch=master)](https://travis-ci.org/McNultyyy/cv)
-## Build Process
-1. Push updates.
-2. Travis-CI builds _tex_ files into a _pdf_.
-3. Output _pdf_ is then pushed into the [travis-build](https://github.com/mcnultyyy/cv/tree/travis-build) branch.
+### Build locally
 
-
-## Run
 ```
-docker run -it --rm --volume "$(pwd):/tmp:rw" texlive pdflatex main
+.\build.ps1
 ```
+
+This wraps `typst compile`. Install Typst with `winget install Typst.Typst` (Windows), `brew install typst` (macOS), or `cargo install typst-cli`.
+
+### Build Process (CI)
+
+1. Push updates to `master`.
+2. GitHub Actions ([build-cv.yml](.github/workflows/build-cv.yml)) compiles `cv.typ` into a PDF.
+3. The PDF is attached to the [latest release](https://github.com/McNultyyy/cv/releases/latest) — direct link: [cv.pdf](https://github.com/McNultyyy/cv/releases/latest/download/cv.pdf).
