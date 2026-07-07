@@ -2,9 +2,6 @@
 // Build:        typst compile cv.typ cv.pdf
 // Live preview: typst watch cv.typ cv.pdf
 //
-// TODO(dates): the two Senior SWE roles at NewDay overlap (Feb 2020 -- Oct 2022
-// vs Jun 2022 -- Present). Confirm the real perm-end / contract-start dates and
-// whether to present it as a perm-to-contract conversion.
 // TODO(header): add location / right-to-work line once confirmed (e.g. "London, UK").
 // TODO(metrics): optional polish, one number is enough. Best candidate: test-suite
 // time before vs after the in-memory component-testing migration (e.g. "40 min -> 2 min")
@@ -91,7 +88,7 @@ observability.
 
 == NewDay
 
-#role[Senior Software Engineer (Contract)][Jun 2022 -- Present]
+#role[Senior Software Engineer (Contract)][Jun 2023 -- Present]
 
 #workstream[Closed-Loop Transaction Processing]
 - Building NewDay's closed-loop transaction journey for partners.
