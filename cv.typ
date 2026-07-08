@@ -11,26 +11,26 @@
 
 #set document(title: "Will McNulty — CV", author: "Will McNulty")
 #set page(paper: "a4", margin: (x: 1.4cm, y: 1.2cm))
-#set text(size: 10pt)
-#set list(indent: 0.8em, spacing: 0.5em)
+#set text(size: 10pt, hyphenate: false)
+#set list(indent: 0.8em, spacing: 0.65em)
 #set par(justify: true)
 
 #let accent = rgb("#2b6cb0")
 
 #show link: set text(fill: accent)
 
-#show heading.where(level: 1): it => block(above: 1em, below: 0.55em)[
+#show heading.where(level: 1): it => block(above: 1em, below: 0.55em, sticky: true)[
   #text(fill: accent, size: 13pt, weight: "bold")[#it.body]
   #v(-0.7em)
   #line(length: 100%, stroke: 0.8pt + accent)
 ]
 
-#show heading.where(level: 2): it => block(above: 0.9em, below: 0.4em)[
+#show heading.where(level: 2): it => block(above: 0.9em, below: 0.4em, sticky: true)[
   #text(size: 12pt, weight: "bold")[#it.body]
 ]
 
 // A job title with right-aligned dates.
-#let role(title, dates) = block(above: 0.8em, below: 0.4em)[
+#let role(title, dates) = block(above: 0.8em, below: 0.4em, sticky: true)[
   #grid(
     columns: (1fr, auto),
     align: (left, right),
@@ -40,12 +40,12 @@
 ]
 
 // A bold mini-heading for a workstream within a role.
-#let workstream(name) = block(above: 0.65em, below: 0.3em)[
-  #text(weight: "bold")[#name]
+#let workstream(name) = block(above: 0.65em, below: 0.3em, sticky: true)[
+  #smallcaps(text(size: 9.5pt, weight: "semibold", tracking: 0.03em)[#name])
 ]
 
 // A project entry: name plus italic tagline.
-#let project(name, tagline) = block(above: 0.8em, below: 0.3em)[
+#let project(name, tagline) = block(above: 0.8em, below: 0.3em, sticky: true)[
   #text(weight: "bold")[#name] — #text(style: "italic")[#tagline]
 ]
 
@@ -74,7 +74,8 @@ observability.
 = Key Skills
 
 #grid(
-  columns: (8.5em, 1fr),
+  columns: (auto, 1fr),
+  column-gutter: 1.1em,
   row-gutter: 0.55em,
   text(weight: "bold")[Languages], [C\#, F\#, TypeScript, PowerShell, Solidity, PineScript],
   text(weight: "bold")[Frameworks], [.NET Core, ASP.NET, Entity Framework, Angular, IdentityServer4],
@@ -95,6 +96,7 @@ observability.
 - Co-developing the custom event-sourcing library used by the application.
 - Building the multi-tenanted system — shared compute with isolated storage.
 - Creating Grafana dashboards and alerting for the transaction-processing system.
+- Enabling cross-service asynchronous communication via Azure Service Bus.
 
 #workstream[Identity]
 - Worked to bring the Identity platform up to NewDay's testing standards, adding component-level tests for all customer journeys with both in-memory and over-the-wire Docker mocks.
@@ -132,7 +134,7 @@ observability.
 - Published reusable PowerShell deployment scripts in Octopus handling cross-cutting concerns (logging, AD resource access management).
 
 #workstream[Acquisitions]
-- Built and deployed multiple Angular frontends as Azure Web Apps, connected to their WebAPI backends via the Backend-for-Frontend pattern.
+- Built and deployed multiple Angular frontends as Azure Web Apps, connected to their WebAPI backends via the #box[Backend-for-Frontend] pattern.
 - Updated the frontend and built new backend microservices handling the new AML checks in the OwnBrands acquisition web journey.
 
 == ICBC Standard Bank
@@ -152,7 +154,7 @@ observability.
 - Implemented an algorithm based on the Opening Range concept in NinjaScript, configurable across time windows, timeframes, and risk parameters.
 
 #project[Crypto Command Centre][An extensible CLI for managing common tasks across chains and exchanges]
-- Implemented commands to programmatically move assets between venues, find the highest-yield venue for an asset (single-sided LP/staking), and move or withdraw it from the yield provider.
+- Implemented commands to programmatically move assets between venues, find the highest-yield venue for an asset (#box[single-sided] LP/staking), and move or withdraw it from the yield provider.
 - Exposed the CLI via a Telegram bot; created a script to auto-generate C\# bindings from Solidity contracts.
 
 #project[Crypto Arb Bot][An arbitrage trading bot for cryptocurrencies]
