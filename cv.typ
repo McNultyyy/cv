@@ -45,7 +45,7 @@
 ]
 
 // A project entry: name plus italic tagline.
-#let project(name, tagline) = block(above: 0.8em, below: 0.3em, sticky: true)[
+#let project(name, tagline) = block(above: 0.8em, below: 0.45em, sticky: true)[
   #text(weight: "bold")[#name] — #text(style: "italic")[#tagline]
 ]
 
